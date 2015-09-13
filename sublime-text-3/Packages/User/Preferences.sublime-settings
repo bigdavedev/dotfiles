@@ -1,4 +1,15 @@
 {
+    "font_size": 8,
+    "translate_tabs_to_spaces": true,
+    "bold_folder_labels": true,
+    "default_line_ending": "unix",
+    "ensure_newline_at_eof_on_save": true,
+    "highlight_line": true,
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "overlay_scroll_bars": "enabled",
+    "trim_trailing_white_space_on_save": true,
+    "theme": "Spacegray.sublime-theme",
 	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
 	"ignored_packages":
 	[
