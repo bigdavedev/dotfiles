@@ -1,0 +1,7 @@
+- clean: ['~']
+
+- link:
+    ~/.xinitrc: xinitrc
+    ~/.i3: i3/
+    ~/.gitconfig: gitconfig
+    ~/.config/sublime-text-3: sublime-text-3

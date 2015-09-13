@@ -1,0 +1,8 @@
+[
+    { "keys": ["ctrl+shift+alt+f3"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    { "keys": ["ctrl+alt+m"], "command": "toggle_menu" },
+    { "keys": ["ctrl+alt+t"], "command": "toggle_tabs" },
+    { "keys": ["f5"], "command": "refresh_folder_list" },
+    { "keys": ["ctrl+,"], "command": "show_overlay", "args": {"overlay": "goto", "text": "#"} },
+    { "keys": ["alt+f8"], "command": "reindent" }
+]
