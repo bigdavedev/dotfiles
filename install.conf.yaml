@@ -5,3 +5,4 @@
     ~/.i3: i3/
     ~/.gitconfig: gitconfig
     ~/.config/sublime-text-3: sublime-text-3
+    ~/.Xresources: Xresources
