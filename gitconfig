@@ -1,3 +1,5 @@
 [user]
 	name = Dave Brown
 	email = d.brown@bigdavedev.com
+[color]
+	ui = auto
