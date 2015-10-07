@@ -7,3 +7,5 @@
 	username = dabr
 [merge]
 	ff = only
+[push]
+	default = simple
