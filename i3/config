@@ -191,4 +191,6 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #000000
 
 exec --no-startup-id gnome-settings-daemon
 
-exec --no-startup-id feh --bg-center ~/Pictures/Wallpapers/current-jpg
+exec --no-startup-id feh --bg-center ~/Pictures/Wallpapers/current.jpg
+
+exec --no-startup-id nm-applet
