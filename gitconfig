@@ -3,3 +3,7 @@
 	email = d.brown@bigdavedev.com
 [color]
 	ui = auto
+[review "https://cgerrit.cpac.loc:8443"]
+	username = dabr
+[merge]
+	ff = only
