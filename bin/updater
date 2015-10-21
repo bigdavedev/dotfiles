@@ -173,6 +173,12 @@ declare -a THINGS_TO_REMOVE=( account-plugin-aim \
                               totem-common \
                               totem-mozilla \
                               totem-plugins \
+                              unity \
+                              unity-asset-pool \
+                              unity-control-center \
+                              unity-control-center-signon \
+                              unity-gtk-module-common \
+                              unity-lens* \
                               unity-scope-audacious \
                               unity-scope-chromiumbookmarks \
                               unity-scope-clementine \
@@ -192,7 +198,11 @@ declare -a THINGS_TO_REMOVE=( account-plugin-aim \
                               unity-scope-video-remote \
                               unity-scope-virtualbox \
                               unity-scope-yelp \
-                              unity-scope-zotero )
+                              unity-scope-zotero \
+                              unity-services \
+                              unity-settings-daemon \
+                              unity-voice-service \
+                              unity-webapps* )
 
 function bringup {
     add_custom_ppas
