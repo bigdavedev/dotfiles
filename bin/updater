@@ -93,7 +93,8 @@ declare -a THINGS_TO_INSTALL=( git \
                                clang-3.8 \
                                clang++-3.8 \
                                sublime-text \
-                               libboost1.55-all-dev )
+                               libboost1.55-all-dev \
+                               vlc )
 
 ## This is a frighteningly long list of bloatware...
 declare -a THINGS_TO_REMOVE=( account-plugin-aim \
@@ -119,6 +120,7 @@ declare -a THINGS_TO_REMOVE=( account-plugin-aim \
                               friends-dispatcher \
                               friends-facebook \
                               friends-twitter \
+                              gedit \
                               gnome-accessibility-themes \
                               gnome-contacts \
                               gnome-mahjongg \

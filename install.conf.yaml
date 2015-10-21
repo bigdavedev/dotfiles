@@ -13,5 +13,4 @@
         create: true
         path: gtk-3.0-settings.ini
     ~/.config/sublime-text-3: sublime-text-3
-    ~/.Xresources: Xresources
     ~/.tigrc: tigrc
