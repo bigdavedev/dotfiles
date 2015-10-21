@@ -1,0 +1,245 @@
+#!/bin/bash
+
+##===========================================================================##
+## This script allows me to effectively bring my machine up by passing the   ##
+## --bringup argument, and, later, keep it up-to-date by passing the --update##
+## argument.                                                                 ##
+##===========================================================================##
+
+declare -r STAGING_DIR=/home/$(whoami)/.staging
+declare -r INSTALL_DIR=/home/$(whoami)/bin
+declare -r INSTALL_DIR_PREFIX=/home/$(whoami)
+
+function print_step {
+        cat << EOF
+##===========================================================================##
+## $1 $2
+##===========================================================================##
+EOF
+}
+
+##===========================================================================##
+## Function    : do_tig                                                      ##
+## Param       : MODE One of install or update                               ##
+## Description : Install or update tig                                       ##
+##===========================================================================##
+function do_tig {
+    declare -r MODE=$1
+    if [ ${MODE} == "install" ]; then
+        print_step Installing tig
+        local TIG_DEPS=( libncursesw5-dev libreadline6-dev autoconf )
+        pushd ${STAGING_DIR}
+            git clone https://github.com/jonas/tig
+        popd
+        sudo apt-get install ${TIG_DEPS[@]}
+    elif [ ${MODE} == "update" ]; then
+        print_step Updating tig
+        pushd ${STAGING_DIR}/tig
+            git pull origin master
+        popd
+    fi
+
+    pushd ${STAGING_DIR}/tig
+        make configure
+        ./configure --prefix=${INSTALL_DIR_PREFIX}
+        make
+        make install
+    popd
+}
+
+##===========================================================================##
+## Function    : add_custom_ppas                                             ##
+## Description : Custom PPAs have to be used to install all the packages that##
+##               I normally use                                              ##
+##===========================================================================##
+function add_custom_ppas {
+    print_step Adding PPAs
+    sudo add-apt-repository ppa:git-core/ppa
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo add-apt-repository ppa:george-edison55/cmake-3.x
+    sudo add-apt-repository ppa:numix/ppa
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3
+
+    wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key|sudo apt-key add -
+    sudo sh -c 'cat >> /etc/apt/sources.list.d/clang.list << EOF
+deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
+deb-src http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
+EOF'
+
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo sh -c 'cat >> /etc/apt/sources.list.d/chrome.list << EOF
+deb http://dl.google.com/linux/chrome/deb/ stable main
+EOF'
+
+    sudo sh -c 'cat >> /etc/apt/sources.list.d/ << EOF
+deb http://debian.sur5r.net/i3 trusty universe
+EOF'
+    sudo apt-get update
+    sudo apt-get --allow-unauthenticated install sur5r-keyring
+
+}
+
+declare -a THINGS_TO_INSTALL=( git \
+                               subversion \
+                               hg \
+                               i3 \
+                               google-chrome-stable \
+                               cmake \
+                               cmake-gui \
+                               build-essential \
+                               software-properties-common \
+                               gcc-5 \
+                               g++-5 \
+                               clang-3.8 \
+                               clang++-3.8 \
+                               sublime-text \
+                               libboost1.55-all-dev )
+
+## This is a frighteningly long list of bloatware...
+declare -a THINGS_TO_REMOVE=( account-plugin-aim \
+                              account-plugin-facebook \
+                              account-plugin-flickr \
+                              account-plugin-jabber \
+                              account-plugin-salut \
+                              account-plugin-twitter \
+                              account-plugin-windows-live \
+                              account-plugin-yahoo \
+                              aisleriot \
+                              brltty \
+                              colord \
+                              deja-dup \
+                              deja-dup-backend-gvfs \
+                              duplicity \
+                              empathy \
+                              empathy-common \
+                              evolution-data-server-online-accounts \
+                              example-content \
+                              firefox \
+                              friends \
+                              friends-dispatcher \
+                              friends-facebook \
+                              friends-twitter \
+                              gnome-accessibility-themes \
+                              gnome-contacts \
+                              gnome-mahjongg \
+                              gnome-mines \
+                              gnome-orca \
+                              gnome-screensaver \
+                              gnome-sudoku \
+                              gnome-video-effects \
+                              gnomine \
+                              landscape-common \
+                              libfriends0 \
+                              libfriends0:amd64 \
+                              libreoffice-avmedia-backend-gstreamer \
+                              libreoffice-base-core \
+                              libreoffice-calc \
+                              libreoffice-common \
+                              libreoffice-core \
+                              libreoffice-draw \
+                              libreoffice-gnome \
+                              libreoffice-gtk \
+                              libreoffice-impress \
+                              libreoffice-math \
+                              libreoffice-ogltrans \
+                              libreoffice-pdfimport \
+                              libreoffice-presentation-minimizer \
+                              libreoffice-style-galaxy \
+                              libreoffice-style-human \
+                              libreoffice-writer \
+                              libsane \
+                              libsane-common \
+                              mcp-account-manager-uoa \
+                              nautilus-sendto-empathy \
+                              python3-uno \
+                              rhythmbox \
+                              rhythmbox-plugins \
+                              rhythmbox-plugin-zeitgeist \
+                              sane-utils \
+                              shotwell \
+                              shotwell-common \
+                              telepathy-gabble \
+                              telepathy-haze \
+                              telepathy-idle \
+                              telepathy-indicator \
+                              telepathy-logger \
+                              telepathy-mission-control-5 \
+                              telepathy-salut \
+                              thunderbird \
+                              thunderbird-gnome-support \
+                              totem \
+                              totem-common \
+                              totem-mozilla \
+                              totem-plugins \
+                              unity-scope-audacious \
+                              unity-scope-chromiumbookmarks \
+                              unity-scope-clementine \
+                              unity-scope-colourlovers \
+                              unity-scope-devhelp \
+                              unity-scope-firefoxbookmarks \
+                              unity-scope-gdrive \
+                              unity-scope-gmusicbrowser \
+                              unity-scope-gourmet \
+                              unity-scope-guayadeque \
+                              unity-scope-manpages \
+                              unity-scope-musicstores \
+                              unity-scope-musique \
+                              unity-scope-openclipart \
+                              unity-scope-texdoc \
+                              unity-scope-tomboy \
+                              unity-scope-video-remote \
+                              unity-scope-virtualbox \
+                              unity-scope-yelp \
+                              unity-scope-zotero )
+
+function bringup {
+    add_custom_ppas
+    sudo apt-get update
+    print_step Removing bloat
+    sudo apt-get autoremove --purge ${THINGS_TO_REMOVE[@]} -y
+    print_step Upgrading system
+    sudo apt-get upgrade -y
+    sudo apt-get dist-upgrade -y
+    print_step Installing necessities
+    sudo apt-get install ${THINGS_TO_INSTALL[@]} -y
+
+    do_tig install
+}
+
+function update {
+    sudo apt-get update
+    print_step Upgrading system
+    sudo apt-get upgrade -y
+    sudo apt-get dist-upgrade -y
+
+    do_tig update
+}
+
+if [ ! -d ${STAGING_DIR} ]; then
+    echo "Staging directory does not exist.  Creating it now."
+    mkdir -pv ${STAGING_DIR}
+fi
+
+while getopts ":h-:" opt; do
+    case $opt in
+        -)
+            case ${OPTARG} in
+                bringup)
+                    print_step Performing bringup
+                    bringup
+                    ;;
+                update)
+                    print_step Performing update
+                    update
+                    ;;
+            esac ;;
+        h)
+            echo "Help"
+            ;;
+        *)
+            if [ "$OPTERR" != 1 ] || [ "${optspec:0:1}" = ":" ]; then
+                echo "Non-option argument: '-${OPTARG}'" >&2
+            fi
+            ;;
+    esac
+done

@@ -1,9 +1,12 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
 	"installed_packages":
 	[
+		"CMake",
+		"Git",
 		"Package Control",
 		"Theme - Spacegray"
 	]
