@@ -71,7 +71,7 @@ EOF'
 deb http://dl.google.com/linux/chrome/deb/ stable main
 EOF'
 
-    sudo sh -c 'cat >> /etc/apt/sources.list.d/ << EOF
+    sudo sh -c 'cat >> /etc/apt/sources.list.d/i3.list << EOF
 deb http://debian.sur5r.net/i3 trusty universe
 EOF'
     sudo apt-get update
@@ -81,7 +81,7 @@ EOF'
 
 declare -a THINGS_TO_INSTALL=( git \
                                subversion \
-                               hg \
+                               mercurial \
                                i3 \
                                google-chrome-stable \
                                cmake \
@@ -94,7 +94,9 @@ declare -a THINGS_TO_INSTALL=( git \
                                clang++-3.8 \
                                sublime-text \
                                libboost1.55-all-dev \
-                               vlc )
+                               vlc \
+                               numix-gtk-theme \
+                               numix-icon-theme-circle )
 
 ## This is a frighteningly long list of bloatware...
 declare -a THINGS_TO_REMOVE=( account-plugin-aim \
@@ -216,6 +218,10 @@ function bringup {
     sudo apt-get install ${THINGS_TO_INSTALL[@]} -y
 
     do_tig install
+
+    print_step "Activiating Numix themes"
+    gsettings set org.gnome.desktop.interface gtk-theme "Numix"
+    gsettings set org.gnome.desktop.wm.preferences theme "Numix"
 }
 
 function update {
