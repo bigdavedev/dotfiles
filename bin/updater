@@ -6,9 +6,9 @@
 ## argument.                                                                 ##
 ##===========================================================================##
 
-declare -r STAGING_DIR=/home/$(whoami)/.staging
-declare -r INSTALL_DIR=/home/$(whoami)/bin
-declare -r INSTALL_DIR_PREFIX=/home/$(whoami)
+declare -r STAGING_DIR=~/.staging
+declare -r INSTALL_DIR=~/bin
+declare -r INSTALL_DIR_PREFIX=~
 
 function print_step {
         cat << EOF
@@ -209,12 +209,12 @@ declare -a THINGS_TO_REMOVE=( account-plugin-aim \
 function bringup {
     add_custom_ppas
     sudo apt-get update
-    print_step Removing bloat
+    print_step "Removing bloat"
     sudo apt-get autoremove --purge ${THINGS_TO_REMOVE[@]} -y
-    print_step Upgrading system
+    print_step "Upgrading system"
     sudo apt-get upgrade -y
     sudo apt-get dist-upgrade -y
-    print_step Installing necessities
+    print_step "Installing necessities"
     sudo apt-get install ${THINGS_TO_INSTALL[@]} -y
 
     do_tig install
@@ -226,7 +226,7 @@ function bringup {
 
 function update {
     sudo apt-get update
-    print_step Upgrading system
+    print_step "Upgrading system"
     sudo apt-get upgrade -y
     sudo apt-get dist-upgrade -y
 
@@ -238,16 +238,21 @@ if [ ! -d ${STAGING_DIR} ]; then
     mkdir -pv ${STAGING_DIR}
 fi
 
+if [ $? -eq 0 ]; then
+    echo "No arguments, assuming update..."
+    update
+fi
+
 while getopts ":h-:" opt; do
     case $opt in
         -)
             case ${OPTARG} in
                 bringup)
-                    print_step Performing bringup
+                    print_step "Performing bringup"
                     bringup
                     ;;
                 update)
-                    print_step Performing update
+                    print_step "Performing update"
                     update
                     ;;
             esac ;;
