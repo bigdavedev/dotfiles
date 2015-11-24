@@ -164,7 +164,7 @@ bar {
 
 # Hide window borders
 hide_edge_borders vertical
-new_window pixel 1
+new_window pixel 0
 
 set $mode_move_workspace Move workspace to monitor on Left or Right
 mode "$mode_move_workspace" {
@@ -197,3 +197,8 @@ exec --no-startup-id nm-applet
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
+# Setup gaps
+smart_gaps on
+gaps inner 15
+smart_borders on
