@@ -1,0 +1,77 @@
+#!/bin/bash
+
+script_name=$(basename $0)
+
+function usage {
+    echo "usage: ${script_name} [dgus]"
+    echo "      -d       specify which domain to join"
+    echo "      -g       specify which domain group to require membership of"
+    echo "      -u       specify the user with which to join to the domain"
+    echo "      -s       indicate that this machine is a server"
+    exit 1
+}
+
+if [ $# == 0 ]; then
+    usage
+fi
+
+pushd /tmp
+    wget http://download.beyondtrust.com/PBISO/8.3/pbis-open-8.3.0.3287.linux.x86_64.deb.sh
+    bash pbis-open-8.3.0.3287.linux.x86_64.deb.sh
+    rm -rf pbis*
+popd
+
+PBIS_CONFIG=/opt/pbis/bin/config
+
+while getopts ":u:d:g:s" opt; do
+  case $opt in
+    u)
+      DOMAIN_USER=${OPTARG}
+      ;;
+    d)
+      DOMAIN=${OPTARG}
+      ;;
+    g)
+      DOMAIN_GROUP=${OPTARG}
+      ;;
+    s)
+      IS_SERVER=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+domainjoin-cli join --disable ssh ${DOMAIN}.loc ${DOMAIN_USER}@${DOMAIN}.loc
+sed -i 's/session optional pam_lsass.so/session [success=ok default=ignore] pam_lsass.so/' /etc/pam.d/common-session
+${PBIS_CONFIG} Requiremembershipof "${DOMAIN}\\${DOMAIN_GROUP}"
+${PBIS_CONFIG} HomeDirTemplate "%H/%U"
+${PBIS_CONFIG} LoginShellTemplate "/bin/bash"
+${PBIS_CONFIG} UserDomainPrefix "${DOMAIN}.loc"
+${PBIS_CONFIG} AssumeDefaultDomain true
+
+cat >> /etc/sudoers.d/${DOMAIN}_domain << EOF
+# Afford Linux admins their sudo rights
+%${DOMAIN}\\\\${DOMAIN_GROUP} ALL=(ALL:ALL) ALL
+EOF
+
+if [ ${IS_SERVER} ]; then
+    echo "Server config done"
+    exit 0
+fi
+
+echo "Desktop machine; fix greeter"
+
+cat > /usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf << EOF
+[SeatDefaults]
+greeter-session=unity-greeter
+allow-guest=false
+greeter-show-remote-login=false
+greeter-show-manual-login=true
+EOF

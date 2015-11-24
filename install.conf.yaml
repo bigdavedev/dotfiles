@@ -4,6 +4,8 @@
     ~/bin/updater:
         create: true
         path: bin/updater
+    ~/bin/lock: bin/lock.sh
+    ~/bin/add_machine_to_domain: bin/add_machine_to_domain
     ~/.bash_aliases: bash_aliases
     ~/.xinitrc: xinitrc
     ~/.i3: i3/
