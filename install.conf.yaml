@@ -22,3 +22,5 @@
         path: Pictures/Wallpapers
     ~/.config/sublime-text-3: sublime-text-3
     ~/.tigrc: tigrc
+    ~/.tmux.conf: tmux.conf
+    ~/.vimrc: vimrc

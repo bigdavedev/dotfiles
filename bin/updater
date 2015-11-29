@@ -82,6 +82,21 @@ EOF'
 
 }
 
+function setup_powerline {
+    sudo apt-get install python-pip git
+    pip install --user git+git://github.com/Lokaltog/powerline
+    mkdir ${HOME}/.fonts
+    pushd ${HOME}/.fonts
+        wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+        cp ../dotfiles/fonts/ter-powerline-v12n.psf.gz .
+    popd
+    fc-cache -vf ~/.fonts
+    mkdir -p ~/.config/fontconfig/conf.d/
+    pushd ~/.config/fontconfig/conf.d
+        https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    popd
+}
+
 declare -a THINGS_TO_INSTALL=( git \
                                subversion \
                                mercurial \
@@ -100,7 +115,9 @@ declare -a THINGS_TO_INSTALL=( git \
                                vlc \
                                numix-gtk-theme \
                                numix-icon-theme-circle \
-                               spotify-client )
+                               spotify-client
+                               vim
+                               tmux )
 
 ## This is a frighteningly long list of bloatware...
 declare -a THINGS_TO_REMOVE=( account-plugin-aim \
