@@ -38,8 +38,6 @@ elif [ "${TERM%%-*}" = "screen" ]; then
     printf_template="\033P\033]4;%d;rgb:%s\007\033\\"
     printf_template_var="\033P\033]%d;rgb:%s\007\033\\"
     printf_template_custom="\033P\033]%s%s\007\033\\"
-elif [ "${TERM%%-*}" = "linux" ]; then
-    printf_template="\e]P%d%s\\"
 else
     printf_template="\033]4;%d;rgb:%s\033\\"
     printf_template_var="\033]%d;rgb:%s\033\\"
@@ -64,30 +62,28 @@ printf $printf_template 13 $color13
 printf $printf_template 14 $color14
 printf $printf_template 15 $color15
 
-if [ "${TERM%%-*}" != "linux" ]; then
-    # 256 color space
-    printf $printf_template 16 $color16
-    printf $printf_template 17 $color17
-    printf $printf_template 18 $color18
-    printf $printf_template 19 $color19
-    printf $printf_template 20 $color20
-    printf $printf_template 21 $color21
+# 256 color space
+printf $printf_template 16 $color16
+printf $printf_template 17 $color17
+printf $printf_template 18 $color18
+printf $printf_template 19 $color19
+printf $printf_template 20 $color20
+printf $printf_template 21 $color21
 
-    # foreground / background / cursor color
-    if [ -n "$ITERM_SESSION_ID" ]; then
-        # iTerm2 proprietary escape codes
-        printf $printf_template_custom Pg d3d0c8 # forground
-        printf $printf_template_custom Ph 2d2d2d # background
-        printf $printf_template_custom Pi d3d0c8 # bold color
-        printf $printf_template_custom Pj 515151 # selection color
-        printf $printf_template_custom Pk d3d0c8 # selected text color
-        printf $printf_template_custom Pl d3d0c8 # cursor
-        printf $printf_template_custom Pm 2d2d2d # cursor text
-    else
-        printf $printf_template_var 10 $color_foreground
-        printf $printf_template_var 11 $color_background
-        printf $printf_template_var 12 $color_cursor
-    fi
+# foreground / background / cursor color
+if [ -n "$ITERM_SESSION_ID" ]; then
+    # iTerm2 proprietary escape codes
+    printf $printf_template_custom Pg d3d0c8 # forground
+    printf $printf_template_custom Ph 2d2d2d # background
+    printf $printf_template_custom Pi d3d0c8 # bold color
+    printf $printf_template_custom Pj 515151 # selection color
+    printf $printf_template_custom Pk d3d0c8 # selected text color
+    printf $printf_template_custom Pl d3d0c8 # cursor
+    printf $printf_template_custom Pm 2d2d2d # cursor text
+else
+    printf $printf_template_var 10 $color_foreground
+    printf $printf_template_var 11 $color_background
+    printf $printf_template_var 12 $color_cursor
 fi
 
 # clean up
@@ -118,9 +114,3 @@ unset color21
 unset color_foreground
 unset color_background
 unset color_cursor
-
-## In Linux TTY we need to clear the screen so we don't see
-## all the escape sequences get printed...
-if [ "${TERM%%-*}" = "linux" ]; then
-    clear
-fi
