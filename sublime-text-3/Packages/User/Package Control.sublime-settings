@@ -6,7 +6,6 @@
 	"installed_packages":
 	[
 		"CMake",
-		"Git",
 		"Package Control",
 		"Theme - Spacegray"
 	]
