@@ -14,8 +14,11 @@
     ~/.config/gtk-3.0/settings.ini:
         create: true
         path: gtk-3.0-settings.ini
-    ~/.config/gnome-terminal:
+    ~/.config/terminal:
         create: true
-        path: gnome-terminal/
+        path: terminal/
+    ~/Pictures/Wallpapers:
+        create: true
+        path: Pictures/Wallpapers
     ~/.config/sublime-text-3: sublime-text-3
     ~/.tigrc: tigrc
