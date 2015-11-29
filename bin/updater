@@ -233,6 +233,7 @@ function update {
     print_step "Upgrading system"
     sudo apt-get upgrade -y
     sudo apt-get dist-upgrade -y
+    sudo apt-get autoremove --purge
 
     do_tig update
 }
