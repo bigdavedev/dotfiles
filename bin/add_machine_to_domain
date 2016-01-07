@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-script_name=$(/usr/bin/basename ${0})
+declare -r script_name=$(/usr/bin/basename ${0})
 
 function usage {
     /bin/echo "usage: ${script_name} -[dgirsu]"
@@ -20,22 +20,22 @@ fi
 while getopts ":d:g:u:irs" opt; do
     case ${opt} in
         d)
-            DOMAIN=${OPTARG}
+            declare -r DOMAIN=${OPTARG}
             ;;
         g)
-            DOMAIN_GROUP=${OPTARG}
+            declare -r DOMAIN_GROUP=${OPTARG}
             ;;
         i)
-            INSTALL_PBIS=1
+            declare -r INSTALL_PBIS=1
             ;;
         r)
-            REMOVE_POSIX_USER=1
+            declare -r REMOVE_POSIX_USER=1
             ;;
         s)
-            IS_SERVER=1
+            declare -r IS_SERVER=1
             ;;
         u)
-            DOMAIN_USER=${OPTARG}
+            declare -r DOMAIN_USER=${OPTARG}
             ;;
         \?)
             /bin/echo "Invalid option: -${OPTARG}" >&2
@@ -59,8 +59,8 @@ if [ ${INSTALL_PBIS} ]; then
     popd
 fi
 
-PBIS_HOME=/opt/pbis
-PBIS_CONFIG=${PBIS_HOME}/bin/config
+declare -r PBIS_HOME=/opt/pbis
+declare -r PBIS_CONFIG=${PBIS_HOME}/bin/config
 
 if [ ! -e ${PBIS_HOME}/bin/domainjoin-cli ]; then
     echo "You need to install PBIS first; Re-run with -i to install."
@@ -94,7 +94,7 @@ if [ ${REMOVE_POSIX_USER} ]; then
     /bin/echo "*******************************************************************************"
     /bin/echo "**                 Removing user ${DOMAIN_USER} from system!                 **"
     /bin/echo "*******************************************************************************"
-    UID=$(/usr/bin/id -u ${DOMAIN_USER})
+    declare -r UID=$(/usr/bin/id -u ${DOMAIN_USER})
     /usr/sbin/deluser ${DOMAIN_USER}
     /usr/bin/find /home -uid ${UID} -exec /bin/chown ${DOMAIN}\\${DOMAIN_USER}:${DOMAIN}\\${DOMAIN_GROUP}
 fi
