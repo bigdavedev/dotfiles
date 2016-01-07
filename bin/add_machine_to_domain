@@ -74,6 +74,10 @@ else
 fi
 
 ${PBIS_HOME}/bin/domainjoin-cli join ${DOMAINJOIN_ARGS} ${DOMAIN}.loc ${DOMAIN_USER}@${DOMAIN}.loc
+if [ ! $? == 0 ]; then
+    echo "Joining domain failed!  Exiting..."
+fi
+
 /bin/sed --in-place 's/session\toptional\tpam_lsass.so/session\t[success=ok default=ignore]\tpam_lsass.so/' /etc/pam.d/common-session
 ${PBIS_CONFIG} Requiremembershipof "${DOMAIN}\\${DOMAIN_GROUP}"
 ${PBIS_CONFIG} HomeDirTemplate "%H/%U"
