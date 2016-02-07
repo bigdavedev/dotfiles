@@ -202,3 +202,5 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 smart_gaps on
 gaps inner 15
 smart_borders on
+
+bindsym control+mod1+l exec --no-startup-id lock
