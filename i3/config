@@ -164,7 +164,7 @@ bar {
 
 # Hide window borders
 hide_edge_borders vertical
-new_window pixel 0
+new_window pixel 2
 
 set $mode_move_workspace Move workspace to monitor on Left or Right
 mode "$mode_move_workspace" {
