@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etx/X11/Xsession
 
 xrdb -merge ~/.Xresources
 
