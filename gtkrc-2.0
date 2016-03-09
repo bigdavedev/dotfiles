@@ -1,13 +1,13 @@
-#gtk-theme-name = "Numix"
 #gtk-icon-theme-name = "Numix"
 
 # GUI theme
-#include "/usr/share/themes/Numix/gtk-2.0/gtkrc"
+include "/usr/share/themes/Numix/gtk-2.0/gtkrc"
 
 #gtk-font-name = "Sans 8"
 
 # Misc stuff
-#gtk-icon-theme-name="Numix-Circle"
-#gtk-fallback-icon-theme="Numix"
-#gtk-can-change-accels = 1
-#schnouki-light-theme = "/usr/share/themes/Numix/gtk-2.0/gtkrc"
+gtk-icon-theme-name="Numix-Circle"
+gtk-fallback-icon-theme="Numix"
+gtk-can-change-accels = 1
+schnouki-light-theme = "/usr/share/themes/Numix/gtk-2.0/gtkrc"
+gtk-theme-name = "Numix"
