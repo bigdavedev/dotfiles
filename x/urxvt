@@ -1,0 +1,11 @@
+URxvt.scrollBar: false
+URxvt.letterSpace: 0
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.internalBorder: 20
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.perl-ext-common: default,selection-to-clipboard
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste

@@ -24,3 +24,5 @@
     ~/.tigrc: tigrc
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
+    ~/.Xresources: Xresources
+    ~/.xres: x

@@ -1,0 +1,43 @@
+general {
+    colors = true
+    color_good = "#6dc2a3"
+    color_degraded = "#bfc271"
+    color_bad = "#c27171"
+    interval = 5
+}
+
+order += "disk /"
+order += "wireless wlan0"
+order += "ethernet eth0"
+order += "battery 0"
+order += "load"
+order += "tztime local"
+
+wireless wlan0 {
+    format_up = "W: (%quality at %essid, %bitrate) %ip"
+    format_down = "W: down"
+}
+
+ethernet eth0 {
+    format_up = "E: %ip"
+    format_down = "E: down"
+}
+
+battery 0 {
+    format = "%status %percentage %remaining"
+    format_down = "No battery"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
+}
+
+tztime local {
+	format = "%Y-%m-%d %H:%M:%S"
+}
+
+load {
+	format = "%5min"
+}
+
+disk "/" {
+	format = "%avail"
+}

@@ -37,7 +37,7 @@ filetype plugin indent on
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 " Configure NERDTree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 nnoremap <C-k><C-b> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

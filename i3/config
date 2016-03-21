@@ -125,26 +125,26 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym odiaeresis resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -152,19 +152,20 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status -c ~/.i3/statusbar
 
-        colors {
-                focused_workspace  #285577 #285577 #ffffff
-                active_workspace   #5f676a #5f676a #ffffff
-                inactive_workspace #222222 #222222 #888888
-                urgent_workspace   #900000 #900000 #ffffff
-        }
+    colors {
+        background #273941
+        focused_workspace  #273941 #273941 #ffffff
+        active_workspace   #5f676a #5f676a #ffffff
+        inactive_workspace #222222 #222222 #888888
+        urgent_workspace   #900000 #900000 #ffffff
+    }
 }
 
 # Hide window borders
 hide_edge_borders vertical
-new_window pixel 2
+new_window pixel 0
 
 set $mode_move_workspace Move workspace to monitor on Left or Right
 mode "$mode_move_workspace" {
@@ -191,14 +192,13 @@ client.placeholder      #0c0c0c #0c0c0c #ffffff #000000
 
 exec --no-startup-id feh --bg-center ~/Pictures/Wallpapers/current.png
 
-exec --no-startup-id nm-applet
-
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Setup gaps
-smart_gaps on
+#smart_gaps on
 gaps inner 15
-smart_borders on
+#gaps outer 10
+#smart_borders on
 
 bindsym control+mod1+l exec --no-startup-id lock
