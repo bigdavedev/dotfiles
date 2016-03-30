@@ -18,9 +18,6 @@ set autoindent
 
 set backspace=eol,start,indent
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=darkgray
-
 set nocompatible
 filetype off
 
@@ -29,6 +26,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'chriskempson/base16-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -44,3 +42,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Configure make
 set makeprg=make\ -C\ build
 nnoremap <F4> :make!<CR>
+
+set background=dark
+colorscheme base16-ocean

@@ -9,6 +9,23 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $base00 #2b303b
+set $base01 #343d46
+set $base02 #4f5b66
+set $base03 #65737e
+set $base04 #a7adba
+set $base05 #c0c5ce
+set $base06 #dfe1e8
+set $base07 #eff1f5
+set $base08 #bf616a
+set $base09 #d08770
+set $base0A #ebcb8b
+set $base0B #a3be8c
+set $base0C #96b5b4
+set $base0D #8fa1b3
+set $base0E #b48ead
+set $base0F #ab7967
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -155,11 +172,13 @@ bar {
     status_command i3status -c ~/.i3/statusbar
 
     colors {
-        background #273941
-        focused_workspace  #273941 #273941 #ffffff
-        active_workspace   #5f676a #5f676a #ffffff
-        inactive_workspace #222222 #222222 #888888
-        urgent_workspace   #900000 #900000 #ffffff
+        separator $base03
+        background $base01
+        statusline $base05
+        focused_workspace $base0C $base0D $base00
+        active_workspace $base02 $base02 $base07
+        inactive_workspace $base01 $base01 $base03
+        urgent_workspace $base08 $base08 $base07
     }
 }
 
@@ -184,11 +203,10 @@ for_window [class="^Spotify$"] floating enable
 
 bindsym $mod+n exec --no-startup-id pcmanfm
 
-client.focused          #285577 #285577 #ffffff #2e9ef4
-client.focused_inactive #5f676a #5f676a #ffffff #484e50
-client.unfocused        #222222 #222222 #888888 #292d2e
-client.urgent           #900000 #900000 #ffffff #900000
-client.placeholder      #0c0c0c #0c0c0c #ffffff #000000
+client.focused $base0D $base0D $base00 $base01
+client.focused_inactive $base02 $base02 $base03 $base01
+client.unfocused $base01 $base01 $base03 $base01
+client.urgent $base02 $base08 $base07 $base08
 
 exec --no-startup-id feh --bg-center ~/Pictures/Wallpapers/current.png
 

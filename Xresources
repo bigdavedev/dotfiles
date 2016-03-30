@@ -1,2 +1,2 @@
-#include ".xres/colours/cloudy"
+#include ".xres/colours/base16-ocean.dark.256"
 #include ".xres/urxvt"
