@@ -5,8 +5,13 @@
 	],
 	"installed_packages":
 	[
+		"C++ Snippets",
+		"ClangAutoComplete",
 		"CMake",
+		"CMakeEditor",
+		"DoxyDoc",
 		"Package Control",
-		"Theme - Spacegray"
+		"Theme - Spacegray",
+		"Xtend"
 	]
 }

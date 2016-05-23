@@ -10,6 +10,8 @@ declare -r STAGING_DIR=~/.staging
 declare -r INSTALL_DIR=~/bin
 declare -r INSTALL_DIR_PREFIX=~
 
+declare -r ROOT_DIR=$(dirname $0)
+
 function print_step {
         cat << EOF
 ##===========================================================================##
@@ -41,9 +43,9 @@ function do_tig {
 
     pushd ${STAGING_DIR}/tig
         make configure
-        ./configure --prefix=${INSTALL_DIR_PREFIX}
+        ./configure --prefix=/usr/local
         make
-        make install
+        sudo make install
     popd
 }
 
@@ -53,33 +55,9 @@ function do_tig {
 ##               I normally use                                              ##
 ##===========================================================================##
 function add_custom_ppas {
-    print_step Adding PPAs
-    sudo add-apt-repository ppa:git-core/ppa
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo add-apt-repository ppa:george-edison55/cmake-3.x
+    print_step "Adding PPAs"
     sudo add-apt-repository ppa:numix/ppa
     sudo add-apt-repository ppa:webupd8team/sublime-text-3
-
-    wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key|sudo apt-key add -
-    sudo sh -c 'cat >> /etc/apt/sources.list.d/clang.list << EOF
-deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
-deb-src http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
-EOF'
-
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-    sudo sh -c 'cat >> /etc/apt/sources.list.d/chrome.list << EOF
-deb http://dl.google.com/linux/chrome/deb/ stable main
-EOF'
-
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-    echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-
-    sudo sh -c 'cat >> /etc/apt/sources.list.d/i3.list << EOF
-deb http://debian.sur5r.net/i3 trusty universe
-EOF'
-    sudo apt-get update
-    sudo apt-get --allow-unauthenticated install sur5r-keyring
-
 }
 
 function setup_powerline {
@@ -88,150 +66,39 @@ function setup_powerline {
     mkdir ${HOME}/.fonts
     pushd ${HOME}/.fonts
         wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-        cp ../dotfiles/fonts/ter-powerline-v12n.psf.gz .
+        cp ${ROOT_DIR}/fonts/ter-powerline-v12n.psf.gz .
     popd
     fc-cache -vf ~/.fonts
     mkdir -p ~/.config/fontconfig/conf.d/
     pushd ~/.config/fontconfig/conf.d
-        https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+        wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     popd
 }
 
 declare -a THINGS_TO_INSTALL=( git \
                                subversion \
                                mercurial \
-                               i3 \
                                google-chrome-stable \
                                cmake \
                                cmake-gui \
-                               build-essential \
                                software-properties-common \
-                               gcc-5 \
-                               g++-5 \
-                               clang-3.8 \
-                               clang++-3.8 \
+                               clang \
+                               clang++ \
+                               clang-format \
                                sublime-text \
                                libboost1.55-all-dev \
                                vlc \
                                numix-gtk-theme \
                                numix-icon-theme-circle \
-                               spotify-client
-                               vim
-                               tmux )
-
-## This is a frighteningly long list of bloatware...
-declare -a THINGS_TO_REMOVE=( account-plugin-aim \
-                              account-plugin-facebook \
-                              account-plugin-flickr \
-                              account-plugin-jabber \
-                              account-plugin-salut \
-                              account-plugin-twitter \
-                              account-plugin-windows-live \
-                              account-plugin-yahoo \
-                              aisleriot \
-                              brltty \
-                              colord \
-                              deja-dup \
-                              deja-dup-backend-gvfs \
-                              duplicity \
-                              empathy \
-                              empathy-common \
-                              evolution-data-server-online-accounts \
-                              example-content \
-                              firefox \
-                              friends \
-                              friends-dispatcher \
-                              friends-facebook \
-                              friends-twitter \
-                              gedit \
-                              gnome-accessibility-themes \
-                              gnome-contacts \
-                              gnome-mahjongg \
-                              gnome-mines \
-                              gnome-orca \
-                              gnome-screensaver \
-                              gnome-sudoku \
-                              gnome-video-effects \
-                              gnomine \
-                              landscape-common \
-                              libfriends0 \
-                              libfriends0:amd64 \
-                              libreoffice-avmedia-backend-gstreamer \
-                              libreoffice-base-core \
-                              libreoffice-calc \
-                              libreoffice-common \
-                              libreoffice-core \
-                              libreoffice-draw \
-                              libreoffice-gnome \
-                              libreoffice-gtk \
-                              libreoffice-impress \
-                              libreoffice-math \
-                              libreoffice-ogltrans \
-                              libreoffice-pdfimport \
-                              libreoffice-presentation-minimizer \
-                              libreoffice-style-galaxy \
-                              libreoffice-style-human \
-                              libreoffice-writer \
-                              libsane \
-                              libsane-common \
-                              mcp-account-manager-uoa \
-                              nautilus-sendto-empathy \
-                              python3-uno \
-                              rhythmbox \
-                              rhythmbox-plugins \
-                              rhythmbox-plugin-zeitgeist \
-                              sane-utils \
-                              shotwell \
-                              shotwell-common \
-                              telepathy-gabble \
-                              telepathy-haze \
-                              telepathy-idle \
-                              telepathy-indicator \
-                              telepathy-logger \
-                              telepathy-mission-control-5 \
-                              telepathy-salut \
-                              thunderbird \
-                              thunderbird-gnome-support \
-                              totem \
-                              totem-common \
-                              totem-mozilla \
-                              totem-plugins \
-                              unity \
-                              unity-asset-pool \
-                              unity-control-center \
-                              unity-control-center-signon \
-                              unity-gtk-module-common \
-                              unity-lens* \
-                              unity-scope-audacious \
-                              unity-scope-chromiumbookmarks \
-                              unity-scope-clementine \
-                              unity-scope-colourlovers \
-                              unity-scope-devhelp \
-                              unity-scope-firefoxbookmarks \
-                              unity-scope-gdrive \
-                              unity-scope-gmusicbrowser \
-                              unity-scope-gourmet \
-                              unity-scope-guayadeque \
-                              unity-scope-manpages \
-                              unity-scope-musicstores \
-                              unity-scope-musique \
-                              unity-scope-openclipart \
-                              unity-scope-texdoc \
-                              unity-scope-tomboy \
-                              unity-scope-video-remote \
-                              unity-scope-virtualbox \
-                              unity-scope-yelp \
-                              unity-scope-zotero \
-                              unity-services \
-                              unity-settings-daemon \
-                              unity-voice-service \
-                              unity-webapps* )
+                               spotify-client \
+                               vim \
+                               tmux \
+                               flac \
+                               cdparanoia)
 
 function bringup {
     add_custom_ppas
     sudo apt-get update
-    print_step "Removing bloat"
-    sudo apt-get autoremove --purge ${THINGS_TO_REMOVE[@]} -y
     print_step "Upgrading system"
     sudo apt-get upgrade -y
     sudo apt-get dist-upgrade -y

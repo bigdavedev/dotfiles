@@ -1,6 +1,7 @@
 - clean: ['~']
 
 - link:
+    ~/.abdcde.conf: abcde.conf
     ~/bin/updater:
         create: true
         path: bin/updater
@@ -24,5 +25,7 @@
     ~/.tigrc: tigrc
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
+    ~/.vim: vim
     ~/.Xresources: Xresources
     ~/.xres: x
+    ~/.nanorc: nanorc

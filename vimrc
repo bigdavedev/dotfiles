@@ -43,5 +43,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set makeprg=make\ -C\ build
 nnoremap <F4> :make!<CR>
 
-set background=dark
-colorscheme base16-ocean
+"set background=dark
+"colorscheme base16-ocean
