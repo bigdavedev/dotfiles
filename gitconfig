@@ -1,6 +1,6 @@
 [user]
 	name = Dave Brown
-	email = d.brown@bigdavedev.com
+	email = david.brown@volvocars.com
 [color]
 	ui = auto
 [review "https://cgerrit.cpac.loc:8443"]
@@ -12,3 +12,5 @@
 [alias]
 	lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	lglong = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --numstat
+[core]
+	excludesfile = /home/dabr/.gitignore

@@ -1,2 +1,10 @@
 #include ".xres/colours/base16-ocean.dark.256"
 #include ".xres/urxvt"
+
+! Fonts {{{
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.hintstyle: hintfull
+Xft.dpi:       192
+! }}}

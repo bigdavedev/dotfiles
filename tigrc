@@ -1,1 +1,2 @@
 set vertical-split = false
+bind main c ?git checkout %(commit)

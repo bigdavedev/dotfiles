@@ -9,3 +9,5 @@ URxvt.iso14755_52: false
 URxvt.perl-ext-common: default,selection-to-clipboard
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+URxvt.font:  xft:DejaVuSansMono:size=8

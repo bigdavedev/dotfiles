@@ -11,7 +11,7 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-set number
+set relativenumber
 set nowrap
 set smartindent
 set autoindent
@@ -21,12 +21,13 @@ set backspace=eol,start,indent
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -45,3 +46,7 @@ nnoremap <F4> :make!<CR>
 
 "set background=dark
 "colorscheme base16-ocean
+
+nmap <c-t> :tabnew<CR>
+nmap <Tab> :tabnext<CR>
+nmap <c-w> :tabclose<CR>

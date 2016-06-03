@@ -11,6 +11,7 @@
     ~/.xinitrc: xinitrc
     ~/.i3: i3/
     ~/.gitconfig: gitconfig
+    ~/.gitignore: git/gitignore
     ~/.gtkrc-2.0: gtkrc-2.0
     ~/.config/gtk-3.0/settings.ini:
         create: true
@@ -24,6 +25,7 @@
     ~/.config/sublime-text-3: sublime-text-3
     ~/.tigrc: tigrc
     ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.vim: vim
     ~/.Xresources: Xresources
