@@ -1,33 +1,30 @@
 - clean: ['~']
 
 - link:
-    ~/.abdcde.conf: abcde.conf
-    ~/bin/updater:
+    ~/.abcde.conf: abcde/abcde.conf
+    ~/bin:
         create: true
-        path: bin/updater
-    ~/bin/lock: bin/lock.sh
-    ~/bin/add_machine_to_domain: bin/add_machine_to_domain
-    ~/.bash_aliases: bash_aliases
-    ~/.xinitrc: xinitrc
-    ~/.i3: i3/
-    ~/.gitconfig: gitconfig
-    ~/.gitignore: git/gitignore
-    ~/.gtkrc-2.0: gtkrc-2.0
+        path: bin
+    ~/.bash_aliases: bash/aliases
     ~/.config/gtk-3.0/settings.ini:
         create: true
-        path: gtk-3.0-settings.ini
+        path: gtk/gtk-3.0-settings.ini
+    ~/.config/sublime-text-3: sublime-text-3
     ~/.config/terminal:
         create: true
         path: terminal/
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
+    ~/.gtkrc-2.0: gtk/gtkrc-2.0
+    ~/.i3: i3/
+    ~/.nanorc: nano/nanorc
     ~/Pictures/Wallpapers:
         create: true
         path: Pictures/Wallpapers
-    ~/.config/sublime-text-3: sublime-text-3
-    ~/.tigrc: tigrc
-    ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
-    ~/.vim: vim
-    ~/.Xresources: Xresources
+    ~/.tigrc: tig/tigrc
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.vim: vim/vim
+    ~/.vimrc: vim/vimrc
     ~/.xres: x
-    ~/.nanorc: nanorc
+    ~/.xinitrc: x/xinitrc
+    ~/.Xresources: x/Xresources

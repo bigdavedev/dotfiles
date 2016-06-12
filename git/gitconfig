@@ -1,0 +1,15 @@
+[user]
+    name = Dave Brown
+    email = d.brown@bigdavedev.com
+    signingkey = D95F3674
+[color]
+    ui = auto
+[merge]
+    ff = only
+[push]
+    default = simple
+[alias]
+    lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    lglong = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --numstat
+[core]
+    excludesfile = /home/dabr/.gitignore
