@@ -1,6 +1,7 @@
 [user]
 	name = Dave Brown
-	email = david.brown@volvocars.com
+	email = d.brown@bigdavedev.com
+	signingkey = D95F3674
 [color]
 	ui = auto
 [review "https://cgerrit.cpac.loc:8443"]
