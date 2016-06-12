@@ -219,4 +219,4 @@ gaps inner 15
 gaps outer 10
 smart_borders on
 
-bindsym control+mod1+l exec --no-startup-id lock
+bindsym control+mod1+l exec --no-startup-id ~/bin/lock
