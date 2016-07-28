@@ -5,7 +5,9 @@
 	],
 	"installed_packages":
 	[
+		"BlameHighlighter",
 		"C++ Snippets",
+		"Clang Format",
 		"ClangAutoComplete",
 		"CMake",
 		"CMakeEditor",

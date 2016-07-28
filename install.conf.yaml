@@ -23,7 +23,8 @@
         path: Pictures/Wallpapers
     ~/.tigrc: tig/tigrc
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.vim: vim/vim
+    ~/.tmux: tmux
+    ~/.vim: vim
     ~/.vimrc: vim/vimrc
     ~/.xres: x
     ~/.xinitrc: x/xinitrc
