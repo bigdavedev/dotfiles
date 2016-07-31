@@ -22,3 +22,5 @@ alias delphi-vpn-disconnect='sudo pkill -SIGINT openconnect'
 
 alias setup_env_nuc='source /opt/poky-dip/2.0.2/environment-setup-corei7-64-poky-linux'
 alias setup_env_ut='source /home/dabr/ihu/ihu_vehiclefunctions/scripts/setup_ut_env.sh'
+
+alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
