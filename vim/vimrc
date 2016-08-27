@@ -38,6 +38,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 " Configure NERDTree
 " autocmd vimenter * NERDTree
 nnoremap <C-k><C-b> :NERDTreeToggle<CR>
+nnoremap <C-k><C-f> :NERDTreeFocus<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Configure make
@@ -49,4 +50,3 @@ nnoremap <F4> :make!<CR>
 
 nmap <c-t> :tabnew<CR>
 nmap <Tab> :tabnext<CR>
-nmap <c-w> :tabclose<CR>

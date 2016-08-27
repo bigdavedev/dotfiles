@@ -173,7 +173,7 @@ bar {
 
     colors {
         separator $base03
-        background $base01
+        background $base00
         statusline $base05
         focused_workspace $base0C $base0D $base00
         active_workspace $base02 $base02 $base07
@@ -184,7 +184,7 @@ bar {
 
 # Hide window borders
 hide_edge_borders vertical
-new_window pixel 0
+new_window pixel 1
 
 set $mode_move_workspace Move workspace to monitor on Left or Right
 mode "$mode_move_workspace" {
@@ -204,8 +204,8 @@ for_window [class="^Spotify$"] floating enable
 bindsym $mod+n exec --no-startup-id pcmanfm
 
 client.focused $base0D $base0D $base00 $base01
-client.focused_inactive $base02 $base02 $base03 $base01
-client.unfocused $base01 $base01 $base03 $base01
+client.focused_inactive $base02 $base00 $base03 $base01
+client.unfocused $base01 $base00 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
 
 exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.png

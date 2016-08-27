@@ -5,4 +5,6 @@ xrdb -merge ~/.Xresources
 
 xautolock -time 5 -locker ~/bin/lock &
 
-exec dwm
+xsetroot -solid "#2b303b"
+
+exec i3
