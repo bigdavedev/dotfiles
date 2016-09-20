@@ -1,4 +1,4 @@
-#include ".xres/colours/base16-ocean.dark.256"
+#include ".xres/colours/base16-chalk-256.Xresources"
 #include ".xres/urxvt"
 
 ! Fonts {{{

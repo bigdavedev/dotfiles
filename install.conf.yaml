@@ -9,6 +9,9 @@
     ~/.config/gtk-3.0/settings.ini:
         create: true
         path: gtk/gtk-3.0-settings.ini
+    ~/.config/base16-shell:
+        create: true
+        path: config/base16-shell
     ~/.config/sublime-text-3: sublime-text-3
     ~/.config/terminal:
         create: true

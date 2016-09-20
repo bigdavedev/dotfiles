@@ -3,9 +3,6 @@ set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 " Always show statusline
 set laststatus=2
 
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -36,17 +33,13 @@ filetype plugin indent on
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 " Configure NERDTree
-" autocmd vimenter * NERDTree
 nnoremap <C-k><C-b> :NERDTreeToggle<CR>
 nnoremap <C-k><C-f> :NERDTreeFocus<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Configure make
-set makeprg=make\ -C\ build
-nnoremap <F4> :make!<CR>
+" Set colourscheme
+set t_Co=256
+let base16colorspace=256
+set background=dark
+colorscheme base16-chalk
 
-"set background=dark
-"colorscheme base16-ocean
-
-nmap <c-t> :tabnew<CR>
-nmap <Tab> :tabnext<CR>

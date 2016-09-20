@@ -10,4 +10,4 @@ URxvt.perl-ext-common: default
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
-URxvt.font:  xft:DejaVuSansMono:size=8
+URxvt.font:  xft:Droid\ sans\ mono\ for\ powerline:size=8
