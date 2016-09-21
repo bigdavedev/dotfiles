@@ -6,6 +6,7 @@
     ui = auto
 [merge]
     ff = only
+	tool = bc3
 [push]
     default = simple
 [alias]
@@ -13,3 +14,5 @@
     lglong = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --numstat
 [core]
     excludesfile = /home/dabr/.gitignore
+[mergetool "bc3"]
+	trustExitCode = true

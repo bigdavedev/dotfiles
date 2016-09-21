@@ -113,7 +113,7 @@ def FlagsForInclude(root):
 
 def FlagsForCompilationDatabase(root, filename):
     try:
-        compilation_db_path = FindNearest(root, 'build/compile_commands.json')
+        compilation_db_path = FindNearest(root, 'build/target/compile_commands.json')
         compilation_db_dir = os.path.dirname(compilation_db_path)
         logging.info("Set compilation database directory to " + compilation_db_dir)
         compilation_db =  ycm_core.CompilationDatabase(compilation_db_dir)

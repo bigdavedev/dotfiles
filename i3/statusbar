@@ -7,20 +7,20 @@ general {
 }
 
 order += "disk /"
-order += "wireless wlan0"
-order += "ethernet eth0"
+order += "wireless wlp2s0"
+order += "ethernet enx9cebe82b2b8a"
 order += "battery 0"
 order += "load"
 order += "tztime local"
 
-wireless wlan0 {
+wireless wlp2s0 {
     format_up = "W: (%quality at %essid, %bitrate) %ip"
     format_down = "W: down"
 }
 
-ethernet eth0 {
-    format_up = "E: %ip"
-    format_down = "E: down"
+ethernet enx9cebe82b2b8a {
+    format_up = "IHU: %ip"
+    format_down = "IHU: down"
 }
 
 battery 0 {

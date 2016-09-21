@@ -25,6 +25,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'benmills/vimux'
 call vundle#end()
 
 filetype plugin indent on
@@ -43,3 +44,5 @@ let base16colorspace=256
 set background=dark
 colorscheme base16-chalk
 
+let g:VimuxRunnerType="window"
+nnoremap <F5> :call VimuxRunCommand("make -j8")<CR>
