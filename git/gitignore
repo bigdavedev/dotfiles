@@ -3,3 +3,5 @@ build/**
 .ycm_extra_conf.py
 
 .tags*
+
+.clang_complete
