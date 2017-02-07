@@ -5,3 +5,6 @@ sublime-text-3/Backup/**
 sublime-text-3/Packages/User/Package\ Control.cache
 sublime-text-3/Packages/User/Package\ Control.*bundle
 sublime-text-3/Packages/User/Package\ Control.last-run
+tmux/plugins
+tmux/resurrect
+vim/bundle
