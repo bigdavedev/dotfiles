@@ -9,4 +9,4 @@ Xft.hintstyle: hintfull
 Xft.dpi:       96
 ! }}}
 
-Xcursor.size : 16
+Xcursor.size : 8
