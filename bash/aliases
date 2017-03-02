@@ -29,3 +29,5 @@ alias setup_env_nuc='source /opt/poky-dip/2.0.2/environment-setup-corei7-64-poky
 alias setup_env_ut='source ${HOME}/ihu/ihu_driverinformation/scripts/setup_ut_env.sh'
 
 alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+
+export GPG_TTY=$(tty)

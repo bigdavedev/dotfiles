@@ -1,7 +1,7 @@
 [user]
     name = Dave Brown
     email = d.brown@bigdavedev.com
-    signingkey = D95F3674
+	signingkey = D8BE43F3556CD580
 [color]
     ui = auto
 [merge]
@@ -16,3 +16,7 @@
     excludesfile = /home/dabr/.gitignore
 [mergetool "bc3"]
 	trustExitCode = true
+[gpg]
+	program = /usr/bin/gpg2
+[commit]
+	gpgsign = true
