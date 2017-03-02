@@ -48,6 +48,8 @@ let g:VimuxRunnerType="window"
 nnoremap <F5> :call VimuxRunCommand("m")<CR>
 nnoremap <F6> :call VimuxRunCommand("mt")<CR>
 
-map <C-k><C-o> :pyf /usr/share/clang/clang-format-3.8/clang-format.py<CR>
-imap <C-k><C-o> :pyf /usr/share/clang/clang-format-3.8/clang-format.py<CR>
+map <C-k><C-o> :py3f /usr/share/clang/clang-format-4.0/clang-format.py<CR>
+imap <C-k><C-o> :py3f /usr/share/clang/clang-format-4.0/clang-format.py<CR>
 
+set listchars=tab:»·,nbsp:·,trail:·,extends:→,precedes:←,eol:¬
+set list
