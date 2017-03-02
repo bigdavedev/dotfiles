@@ -24,6 +24,7 @@
     ~/Pictures/Wallpapers:
         create: true
         path: Pictures/Wallpapers
+    ~/Pictures/mario.png: Pictures/mario.png
     ~/.tigrc: tig/tigrc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux: tmux

@@ -36,7 +36,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -171,6 +171,10 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status -c ~/.i3/statusbar
 
+	mode hide
+	hidden_state hide
+	modifier $mod
+
     colors {
         separator $base03
         background $base00
@@ -208,8 +212,6 @@ client.focused_inactive $base02 $base00 $base03 $base01
 client.unfocused $base01 $base00 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
 
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/current.png
-
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
@@ -219,4 +221,4 @@ gaps inner 15
 gaps outer 10
 smart_borders on
 
-bindsym control+mod1+l exec --no-startup-id ~/bin/lock
+bindsym control+mod1+l exec --no-startup-id ~/bin/lock ~/Pictures/mario.png

@@ -1,10 +1,12 @@
 #!/bin/bash
-source /etx/X11/Xsession
+source /etc/X11/Xsession
 
 xrdb -merge ~/.Xresources
 
-xautolock -time 5 -locker ~/bin/lock &
+xautolock -time 5 -locker "~/bin/lock ~/Pictures/mario.png" &
 
 xsetroot -solid "#151515"
+
+urxvtd -q -f -o
 
 exec i3
