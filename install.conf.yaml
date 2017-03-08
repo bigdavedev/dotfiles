@@ -13,6 +13,9 @@
         create: true
         path: config/base16-shell
     ~/.config/sublime-text-3: sublime-text-3
+    ~/.config/systemd/user:
+        create: true
+        path: config/systemd/user
     ~/.config/terminal:
         create: true
         path: terminal/
