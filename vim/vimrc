@@ -17,6 +17,7 @@ set backspace=eol,start,indent
 
 set nocompatible
 filetype off
+syntax on
 
 set rtp+=~/.vim/Vundle.vim
 call vundle#begin()
