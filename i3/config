@@ -208,8 +208,8 @@ for_window [class="^Spotify$"] floating enable
 bindsym $mod+n exec --no-startup-id pcmanfm
 
 client.focused $base0D $base0D $base00 $base01
-client.focused_inactive $base02 $base00 $base03 $base01
-client.unfocused $base01 $base00 $base03 $base01
+client.focused_inactive $base02 $base03 $base03 $base01
+client.unfocused $base01 $base03 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
