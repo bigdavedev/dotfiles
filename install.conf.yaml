@@ -15,6 +15,7 @@
     ~/bin: bin
     ~/.bash_aliases: bash/aliases
     ~/.bashrc: bash/bashrc
+    ~/.bash_profile: bash/profile
     ~/.config/gtk-3.0: config/gtk3
     ~/.config/base16-shell: config/base16-shell
     ~/.config/systemd/user: config/systemd/user
