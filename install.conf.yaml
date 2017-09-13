@@ -9,6 +9,8 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/.config/, Creating XDG_CONFIG_HOME]
   - [mkdir -p ~/.cache/, Creating XDG_CACHE_DIR]
+  - [mkdir -p ~/.local/share, Creating XDG_DATA_HOME]
+  - [mkdir -p ~/.local/share/fonts, Creating XDG_DATA_HOME/fonts]
   - [mkdir -p ~/.config/systemd]
 
 - link:
@@ -19,11 +21,11 @@
     ~/.config/gtk-3.0: config/gtk3
     ~/.config/base16-shell: config/base16-shell
     ~/.config/systemd/user: config/systemd/user
-    ~/.config/terminal: terminal/
     ~/.config/git: config/git/
     ~/.config/gtk2: config/gtk3
     ~/.config/i3: config/i3
     ~/.config/i3status: config/i3status
+    ~/.config/tty: config/tty
     ~/.nanorc: nano/nanorc
     ~/Pictures/Wallpapers: Pictures/Wallpapers
     ~/Pictures/mario.png: Pictures/mario.png
@@ -34,4 +36,7 @@
     ~/.xres: x
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
+    ~/.local/share/fonts/ter-powerline-v12n.psf.gz: fonts/ter-powerline-v12n.psf.gz
 
+- shell:
+  - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]

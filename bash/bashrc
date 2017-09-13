@@ -26,10 +26,10 @@ function setupBase16 {
 }
 
 if [ "${TERM%%-*}" == "linux" ]; then
-    source ~/.config/terminal/themes/base16-ocean.dark.linux.sh
+    source "${XDG_CONFIG_HOME}/tty/themes/base16-eighties-dark_linux.sh"
 
     ## Set the font size to something more palettable
-    setfont ${HOME}/.fonts/ter-powerline-v12n.psf.gz
+    setfont "${XDG_DATA_HOME}/share/fonts/ter-powerline-v12n.psf.gz"
 fi
 
 export PS1="[\u@\h] \w \\$ \[$(tput sgr0)\]"
