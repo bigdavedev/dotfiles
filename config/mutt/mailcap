@@ -1,0 +1,3 @@
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/calendar; $XDG_CONFIG_HOME/mutt/vcalender_filter.pl; copiousoutput;
+

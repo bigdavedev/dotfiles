@@ -25,6 +25,8 @@
     ~/.config/gtk2: config/gtk3
     ~/.config/i3: config/i3
     ~/.config/i3status: config/i3status
+    ~/.config/mutt: config/mutt
+    ~/.config/offlineimap: config/offlineimap
     ~/.config/tty: config/tty
     ~/.nanorc: nano/nanorc
     ~/Pictures/Wallpapers: Pictures/Wallpapers
