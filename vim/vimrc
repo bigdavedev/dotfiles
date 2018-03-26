@@ -8,6 +8,8 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
+set colorcolumn=80
+
 set relativenumber
 set nowrap
 set smartindent
@@ -31,12 +33,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 
 filetype plugin indent on
 
 " Configure YCM
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_python_binary_path = "python"
 
 " Configure NERDTree
 nnoremap <C-k><C-b> :NERDTreeToggle<CR>
@@ -49,11 +53,11 @@ let base16colorspace=256
 set background=dark
 colorscheme base16-chalk
 
-let g:VimuxRunnerType="window"
+let g:VimuxRunnerType="pane"
 nnoremap <F5> :call VimuxRunCommand("m")<CR>
 nnoremap <F6> :call VimuxRunCommand("mt")<CR>
 
-map <C-k><C-o> :py3f /usr/share/clang/clang-format.py<CR>
+map <C-K> :py3f /usr/share/clang/clang-format.py<CR>
 imap <C-k><C-o> :py3f /usr/share/clang/clang-format.py<CR>
 
 set listchars=tab:»·,nbsp:·,trail:·,extends:→,precedes:←,eol:¬
