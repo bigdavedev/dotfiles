@@ -19,4 +19,4 @@
 [gpg]
 	program = /usr/bin/gpg2
 [commit]
-	gpgsign = true
+	gpgsign = false
