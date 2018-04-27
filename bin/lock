@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Dependencies:
 #  * imagemagick
 #  * i3lock
 #  * scrot (optional but default)
+
+# Setup Bash unofficial strict mode
+set -euo pipefail
+IFS=$'\n\t'
 
 IMAGE=/tmp/i3lock.png
 
@@ -13,17 +17,25 @@ function stop_spotify() {
 	local -r DBUS_MESSAGE_NAME=org.mpris.MediaPlayer2.Player.Stop
 
 	dbus-send --print-reply \
-	          --dest=${DBUS_DESTINATION} \
-	          ${DBUS_OBJECT_PATH} \
-	          ${DBUS_MESSAGE_NAME}
+	          --dest="${DBUS_DESTINATION}" \
+	          "${DBUS_OBJECT_PATH}" \
+	          "${DBUS_MESSAGE_NAME}" 1>/dev/null || true
 }
 
 function create_lock_screen() {
 	scrot ${IMAGE}
 	convert ${IMAGE} -scale 10% -scale 1000% ${IMAGE}
 
+	local -r OVERLAY=${1:-x}
+
 	# If any image was passed on the command line, superimpose it
-	[[ -f $1 ]] && convert ${IMAGE} $1 -gravity center -composite -matte ${IMAGE}
+	if [[ "${OVERLAY}" != "x" ]]; then
+		convert ${IMAGE}          \
+		        "${OVERLAY}"      \
+		        -gravity center   \
+		        -composite -matte \
+		        ${IMAGE}
+	fi
 }
 
 function lock_screen() {
@@ -34,8 +46,8 @@ function cleanup() {
 	rm ${IMAGE}
 }
 
-create_lock_screen $@
+trap cleanup EXIT
+
+create_lock_screen "$@"
 stop_spotify
 lock_screen
-cleanup
-
