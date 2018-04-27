@@ -15,4 +15,6 @@ xsetroot -solid "#151515"
 
 urxvtd -q -f -o
 
+(sleep 5; polybar docked) &
+
 exec i3

@@ -26,6 +26,7 @@
     ~/.config/i3: config/i3
     ~/.config/i3status: config/i3status
     ~/.config/mutt: config/mutt
+    ~/.config/polybar: config/polybar
     ~/.config/offlineimap: config/offlineimap
     ~/.config/tty: config/tty
     ~/.nanorc: nano/nanorc
@@ -38,7 +39,6 @@
     ~/.xres: x
     ~/.xinitrc: x/xinitrc
     ~/.Xresources: x/Xresources
-    ~/.local/share/fonts/ter-powerline-v12n.psf.gz: fonts/ter-powerline-v12n.psf.gz
 
 - shell:
   - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
