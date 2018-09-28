@@ -1,5 +1,5 @@
-" Setup Powerline
-set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim/
+filetype plugin indent on
+
 " Always show statusline
 set laststatus=2
 
@@ -20,23 +20,18 @@ set cursorline
 set backspace=eol,start,indent
 
 set nocompatible
-filetype off
 syntax on
 
-set rtp+=~/.vim/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'benmills/vimux'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'majutsushi/tagbar'
-call vundle#end()
-
-filetype plugin indent on
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --clang-completer --system-libclang' }
+Plug 'scrooloose/nerdtree'
+Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'benmills/vimux'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'majutsushi/tagbar'
+call plug#end()
 
 " Configure YCM
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
