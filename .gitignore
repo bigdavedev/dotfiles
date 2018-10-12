@@ -1,10 +1,5 @@
-sublime-text-3/Cache/**
-sublime-text-3/Index/**
-sublime-text-3/Local/**
-sublime-text-3/Backup/**
-sublime-text-3/Packages/User/Package\ Control.cache
-sublime-text-3/Packages/User/Package\ Control.*bundle
-sublime-text-3/Packages/User/Package\ Control.last-run
 tmux/plugins
 tmux/resurrect
 vim/bundle
+vim/autoload
+vim/plugged
