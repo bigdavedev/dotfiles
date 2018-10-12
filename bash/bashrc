@@ -32,7 +32,7 @@ if [ "${TERM%%-*}" == "linux" ]; then
     setfont "${XDG_DATA_HOME}/share/fonts/ter-powerline-v12n.psf.gz"
 fi
 
-export PS1="[\u@\h] \w \\$ \[$(tput sgr0)\]"
+export PS1="\\$ "
 
 export GPG_TTY=$(tty)
 
