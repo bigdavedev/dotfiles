@@ -13,13 +13,11 @@ set colorcolumn=80
 set relativenumber
 set nowrap
 set smartindent
-set autoindent
 
 set cursorline
 
 set backspace=eol,start,indent
 
-set nocompatible
 syntax on
 
 call plug#begin('~/.vim/plugged')
