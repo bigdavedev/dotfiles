@@ -52,7 +52,7 @@ let g:VimuxRunnerType="pane"
 nnoremap <F5> :call VimuxRunCommand("m")<CR>
 nnoremap <F6> :call VimuxRunCommand("mt")<CR>
 
-map <C-K> :py3f /usr/share/clang/clang-format.py<CR>
+map <C-K><C-o> :py3f /usr/share/clang/clang-format.py<CR>
 imap <C-k><C-o> :py3f /usr/share/clang/clang-format.py<CR>
 
 set listchars=tab:»·,nbsp:·,trail:·,extends:→,precedes:←,eol:¬
