@@ -29,6 +29,7 @@ Plug 'benmills/vimux'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
 
 " Configure YCM
@@ -73,3 +74,17 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 nnoremap <F11> :Goyo<CR>
+
+let g:vimwiki_list = [
+	\{
+	\	'path': '~/vimwiki',
+	\	'syntax': 'markdown',
+	\	'ext': '.md',
+	\	'nested_syntaxes': {
+	\		'c++': 'cpp',
+	\		'python': 'python',
+	\		'sh': 'sh'
+	\	},
+	\}
+\]
+
