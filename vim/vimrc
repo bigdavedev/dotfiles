@@ -83,7 +83,8 @@ let g:vimwiki_list = [
 	\	'nested_syntaxes': {
 	\		'c++': 'cpp',
 	\		'python': 'python',
-	\		'sh': 'sh'
+	\		'sh': 'sh',
+	\		'diff': 'diff'
 	\	},
 	\}
 \]
