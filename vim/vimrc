@@ -30,6 +30,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'tpope/vim-obsession'
 call plug#end()
 
 " Configure YCM
