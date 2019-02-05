@@ -19,7 +19,7 @@
     ~/.bashrc: bash/bashrc
     ~/.bash_profile: bash/profile
     ~/.config/gtk-3.0: config/gtk3
-    ~/.config/base16-shell: config/base16-shell
+    ~/.config/bash: config/bash
     ~/.config/systemd/user: config/systemd/user
     ~/.config/git: config/git/
     ~/.config/gtk2: config/gtk3

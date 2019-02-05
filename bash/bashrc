@@ -11,16 +11,14 @@ source /usr/share/bash-completion/bash_completion
 
 source ~/.bash_aliases
 
-function setupBase16 {
-	BASE16_SHELL="${XDG_CONFIG_HOME}/base16-shell/"
-	[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-}
-
 if [ "${TERM%%-*}" == "linux" ]; then
     source "${XDG_CONFIG_HOME}/tty/themes/base16-eighties-dark_linux.sh"
 
     ## Set the font size to something more palettable
     setfont "${XDG_DATA_HOME}/share/fonts/ter-powerline-v12n.psf.gz"
+else
+	source $XDG_CONFIG_HOME/bash/themes/nord.sh
+	colour_scheme_nord
 fi
 
 export PS1="\\$ "
@@ -29,4 +27,3 @@ export GPG_TTY=$(tty)
 
 export TIGRC_USER="${XDG_CONFIG_HOME}/tigrc"
 
-setupBase16
