@@ -31,6 +31,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'tpope/vim-obsession'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Configure YCM
@@ -43,10 +44,7 @@ nnoremap <C-k><C-f> :NERDTreeFocus<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Set colourscheme
-set t_Co=256
-let base16colorspace=256
-set background=dark
-colorscheme base16-chalk
+colorscheme nord
 
 let g:VimuxRunnerType="pane"
 
