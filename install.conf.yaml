@@ -30,7 +30,7 @@
     ~/.config/tty: config/tty
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
-    ~/.xres: x
+    ~/.xinitrx: x/xinitrc
 
 - shell:
   - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
