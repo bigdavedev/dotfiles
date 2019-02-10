@@ -12,14 +12,15 @@ source /usr/share/bash-completion/bash_completion
 source ~/.bash_aliases
 
 if [ "${TERM%%-*}" == "linux" ]; then
-    source "${XDG_CONFIG_HOME}/tty/themes/base16-eighties-dark_linux.sh"
+    source "${XDG_CONFIG_HOME}/tty/themes/nord.sh"
 
     ## Set the font size to something more palettable
     setfont "${XDG_DATA_HOME}/share/fonts/ter-powerline-v12n.psf.gz"
 else
 	source $XDG_CONFIG_HOME/bash/themes/nord.sh
-	colour_scheme_nord
 fi
+
+colour_scheme_nord
 
 export PS1="\\$ "
 

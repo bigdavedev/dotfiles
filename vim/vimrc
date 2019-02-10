@@ -18,6 +18,8 @@ set cursorline
 
 set backspace=eol,start,indent
 
+let mapleader=" "
+
 syntax on
 
 call plug#begin('~/.vim/plugged')
@@ -33,6 +35,8 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'tpope/vim-obsession'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
+
+nnoremap <leader>pu :PlugUpdate<CR>
 
 " Configure YCM
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"

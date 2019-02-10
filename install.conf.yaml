@@ -18,28 +18,19 @@
     ~/.bash_aliases: bash/aliases
     ~/.bashrc: bash/bashrc
     ~/.bash_profile: bash/profile
-    ~/.config/gtk-3.0: config/gtk3
+    ~/.config/gtk-3.0/settings.ini: config/gtk3/settings.ini
     ~/.config/bash: config/bash
-    ~/.config/systemd/user: config/systemd/user
     ~/.config/git: config/git/
-    ~/.config/gtk2: config/gtk3
-    ~/.config/i3: config/i3
-    ~/.config/i3status: config/i3status
+    ~/.config/gtk-2.0/gtkrc-2.0: config/gtk2/gtkrc-2.0
     ~/.config/mutt: config/mutt
     ~/.config/pacman: config/pacman
-    ~/.config/polybar: config/polybar
-    ~/.config/offlineimap: config/offlineimap
     ~/.config/tty: config/tty
-    ~/.nanorc: nano/nanorc
-    ~/Pictures/Wallpapers: Pictures/Wallpapers
-    ~/Pictures/mario.png: Pictures/mario.png
+    ~/.config/nano/nanorc: config/nano/nanorc
     ~/.config/tigrc: config/tig/tigrc
     ~/.config/tmux: config/tmux
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
     ~/.xres: x
-    ~/.xinitrc: x/xinitrc
-    ~/.Xresources: x/Xresources
 
 - shell:
   - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
