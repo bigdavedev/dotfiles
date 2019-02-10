@@ -7,4 +7,6 @@ declare -x XDG_CACHE_HOME="${HOME}/.cache"
 declare -x XDG_CONFIG_HOME="${HOME}/.config"
 declare -x XDG_DATA_HOME="${HOME}/.local"
 
+declare -x GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
