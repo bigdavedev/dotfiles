@@ -1,18 +1,13 @@
 source $XDG_CONFIG_HOME/mutt/colours.conf
 
-source $XDG_CONFIG_HOME/mutt/arccore.conf
-
-folder-hook arccore/* source ~/.config/mutt/arccore.conf
-folder-hook consat/* source ~/.config/mutt/consat.conf
+#folder-hook consat/* source ~/.config/mutt/consat.conf
 
 source $XDG_CONFIG_HOME/mutt/keybindings
 
 set mbox_type    = MailDir
-set spoolfile    = "+/"
-set header_cache = "$XDG_CACHE_HOME"/mutt/headers
 
-set mailcap_path = "$XDG_CONFIG_HOME"/mutt/mailcap
-set editor       = "/usr/bin/vim -c 'set tw=72 ft=mail' -c 'set wrap' -c 'set nocp' -c '+/^--.$/-1'"
+#set mailcap_path = "$XDG_CONFIG_HOME"/mutt/mailcap
+set editor       = "/usr/bin/vim"
 
 set send_charset = "utf-8"
 
@@ -22,3 +17,6 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html
 auto_view text/calendar
 alternative_order text/plain text/html text/*
+
+## GMail
+source $XDG_CONFIG_HOME/mutt/gmail.conf
