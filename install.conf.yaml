@@ -1,17 +1,16 @@
 - defaults:
-  - link:
-    relink: true
-    create: true
+    link:
+      relink: true
+      create: true
 
 - clean: ['~']
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [mkdir -p ~/.config/, Creating XDG_CONFIG_HOME]
-  - [mkdir -p ~/.cache/, Creating XDG_CACHE_DIR]
-  - [mkdir -p ~/.local/share, Creating XDG_DATA_HOME]
-  - [mkdir -p ~/.local/share/fonts, Creating XDG_DATA_HOME/fonts]
-  - [mkdir -p ~/.config/systemd]
+    - [mkdir -p ~/.config/, Creating XDG_CONFIG_HOME]
+    - [mkdir -p ~/.cache/, Creating XDG_CACHE_DIR]
+    - [mkdir -p ~/.local/share, Creating XDG_DATA_HOME]
+    - [mkdir -p ~/.local/share/fonts, Creating XDG_DATA_HOME/fonts]
+    - [mkdir -p ~/.config/systemd]
 
 - link:
     ~/bin: bin
@@ -30,7 +29,8 @@
     ~/.config/tty: config/tty
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
-    ~/.xinitrx: x/xinitrc
+    ~/.xinitrc: x/xinitrc
 
 - shell:
-  - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
+    - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
+
