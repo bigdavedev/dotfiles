@@ -14,6 +14,7 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Global configuration
@@ -61,4 +62,29 @@ let main_wiki.nestex_syntaxes = {
 
 let g:vimwiki_list = [main_wiki]
 
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+nnoremap <leader>ff :FZF<cr>
+
+function! s:goyo_enter()
+	if executable('tmux') && strlen($TMUX)
+		silent !tmux set status off
+		silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+	endif
+	set noshowmode
+	set noshowcmd
+	set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+	if executable('tmux') && strlen($TMUX)
+		silent !tmux set status on
+		silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+	endif
+	set showmode
+	set showcmd
+	set scrolloff=5
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <leader>G :Goyo<cr>
