@@ -15,21 +15,23 @@
 - link:
     ~/bin: bin
     ~/.bash_aliases: bash/aliases
-    ~/.bash_profile: bash/profile
-    ~/.bashrc: bash/bashrc
-    ~/.config/bash: config/bash
+#    ~/.bash_profile: bash/profile
+#    ~/.bashrc: bash/bashrc
+#    ~/.config/bash: config/bash
     ~/.config/git: config/git/
-    ~/.config/gtk-2.0/gtkrc: config/gtk-2.0/gtkrc
-    ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
-    ~/.config/mutt: config/mutt
-    ~/.config/nano/nanorc: config/nano/nanorc
-    ~/.config/pacman: config/pacman
+#    ~/.config/gtk-2.0/gtkrc: config/gtk-2.0/gtkrc
+#    ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
+#    ~/.config/mutt: config/mutt
+#    ~/.config/nano: config/nano
+#    ~/.config/pacman: config/pacman
     ~/.config/tigrc: config/tig/tigrc
     ~/.config/tmux: config/tmux
-    ~/.config/tty: config/tty
+#    ~/.config/tty: config/tty
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
-    ~/.xinitrc: x/xinitrc
+#    ~/.xinitrc: x/xinitrc
+    ~/.xres: x
+    ~/.Xresources: x/Xresources
 
 - shell:
     - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]

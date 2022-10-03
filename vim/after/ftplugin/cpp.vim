@@ -1,8 +1,13 @@
-nnoremap <buffer> <F5> :call VimuxRunCommand("make")<CR>
-nnoremap <buffer> <F6> :call VimuxRunCommand("make test")<CR>
+" YCM keybindings
+nnoremap <leader>gd :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>gr :YcmCompleter GoToReferences<cr>
+nnoremap <leader>fi :YcmCompleter FixIt<cr>
+nnoremap <leader>rr :YcmCompleter RefactorRename 
 
-map <buffer> <C-K><C-o> :py3f /usr/share/clang/clang-format.py<CR>
-imap <buffer> <C-K><C-o> :py3f /usr/share/clang/clang-format.py<CR>
+let g:ycm_autoclose_preview_window_adter_completion = 1
 
-setlocal textwidth=80
-setlocal colorcolumn=80
+" clang-format keybinding
+nnoremap <buffer> <C-K><c-o> :py3f /usr/share/clang/clang-format-16/clang-format.py<CR>
+
+" Make commentary use C++ style comments
+setlocal commentstring=//\ %s

@@ -1,7 +1,23 @@
 filetype plugin indent on
+syntax on
 
-" Always show statusline
-set laststatus=2
+" Install plugins
+call plug#begin()
+Plug 'tpope/vim-fugitive'
+Plug 'ycm-core/YouCompleteMe', { 
+	\ 'do': './install.py --clangd-completer',
+	\ 'for': ['c', 'cpp', 'py']
+\}
+Plug 'tpope/vim-commentary'
+Plug 'vimwiki/vimwiki'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+call plug#end()
+
+" Global configuration
+let mapleader = " "
 
 set tabstop=4
 set softtabstop=4
@@ -14,81 +30,35 @@ set relativenumber
 set nowrap
 set smartindent
 
-set cursorline
-
-set backspace=eol,start,indent
-
-let mapleader=" "
-
-syntax on
-
-call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
-Plug 'scrooloose/nerdtree'
-Plug 'chriskempson/base16-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'benmills/vimux'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'majutsushi/tagbar'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'tpope/vim-obsession'
-Plug 'arcticicestudio/nord-vim'
-call plug#end()
-
-nnoremap <leader>pu :PlugUpdate<CR>
-
-" Configure YCM
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_python_binary_path = "python"
-
-" Configure NERDTree
-nnoremap <C-k><C-b> :NERDTreeToggle<CR>
-nnoremap <C-k><C-f> :NERDTreeFocus<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Set colourscheme
-colorscheme nord
-
-let g:VimuxRunnerType="pane"
-
 set listchars=tab:»·,nbsp:·,trail:·,extends:→,precedes:←,eol:¬
 set list
 
-" Setup distraction free writing
-function! s:goyo_enter()
-	silent !tmux set status off
-	silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-	set noshowmode
-	set noshowcmd
-	set scrolloff=999
-	Limelight
-endfunction
+set cursorline
 
-function! s:goyo_leave()
-	silent !tmux set status on
-	silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-	set showmode
-	set showcmd
-	set scrolloff=5
-	Limelight!
-endfunction
+nnoremap <leader>pu :PlugUpdate<CR>
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-nnoremap <F11> :Goyo<CR>
+" Set colourscheme
+set background=dark
+let g:gruvbox_contrast_dark="medium"
+colorscheme gruvbox
 
-let g:vimwiki_list = [
-	\{
-	\	'path': '~/vimwiki',
-	\	'syntax': 'markdown',
-	\	'ext': '.md',
-	\	'nested_syntaxes': {
-	\		'c++': 'cpp',
-	\		'python': 'python',
-	\		'sh': 'sh',
-	\		'diff': 'diff'
-	\	},
-	\}
-\]
+let g:airline_powerline_fonts = 1
 
+" NERDTree configuration
+nnoremap <leader>nf :NERDTreeFocus<cr>
+
+" Create a wiki
+let main_wiki = {}
+let main_wiki.path = '~/vimwiki'
+let main_wiki.syntax = 'markdown'
+let main_wiki.ext = '.md'
+let main_wiki.nestex_syntaxes = {
+\	'c++': 'cpp',
+\	'python': 'python',
+\	'sh': 'sh',
+\	'diff': 'diff'
+\}
+
+let g:vimwiki_list = [main_wiki]
+
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
