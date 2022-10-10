@@ -20,7 +20,7 @@ else
 	source $XDG_CONFIG_HOME/bash/themes/nord.sh
 fi
 
-colour_scheme_nord
+#colour_scheme_nord
 
 export PS1="\\$ "
 

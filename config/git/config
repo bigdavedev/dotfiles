@@ -1,6 +1,6 @@
 [user]
 	name = Dave Brown
-	email = dave.brown@zenseact.com
+	email = d.brown@bigdavedev.com
 	signingkey = D8BE43F3556CD580
 [color]
 	ui = auto
@@ -13,8 +13,7 @@
 	lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	lglong = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --numstat
 [core]
-	excludesfile = /home/dabr/.gitignore
-	editor = vim
+	editor = nvim
 [mergetool "bc3"]
 	trustExitCode = true
 [gpg]
