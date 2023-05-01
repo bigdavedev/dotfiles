@@ -1,0 +1,20 @@
+XF86MonBrightness{Up,Down}
+	brightnessctl set {+10%,10%-}
+
+XF86Audio{Raise,Lower}Volume 
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86Display
+	echo display
+
+alt + p
+	rofi -show run
+
+{_,alt} + Print
+	flameshot {gui,screen}

@@ -26,6 +26,7 @@
 #    ~/.config/mutt: config/mutt
     ~/.config/nano: config/nano
     ~/.config/pacman: config/pacman
+    ~/.config/sxhkd: config/sxhkd
     ~/.config/tigrc: config/tig/tigrc
     ~/.config/tmux: config/tmux
 #    ~/.config/tty: config/tty
@@ -34,6 +35,7 @@
     ~/.xinitrc: x/xinitrc
     ~/.xres: x
     ~/.Xresources: x/Xresources
+    ~/.xprofile: x/xprofile
 
 - shell:
     - [cp fonts/ter-powerline-v12n.psf.gz ~/.local/share/fonts/]
