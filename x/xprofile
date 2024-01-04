@@ -1,3 +1,8 @@
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 sxhkd &
 nm-applet &
-ssh-agent &
+blueman-applet &
+hsetroot -solid '#282828'
+picom -b
+cbatticon -u 20 -i notification -r 5 -c "poweroff" -l 15 -o "brightnesctl set 5%" &

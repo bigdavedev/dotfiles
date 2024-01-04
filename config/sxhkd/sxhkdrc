@@ -18,3 +18,6 @@ alt + p
 
 {_,alt} + Print
 	flameshot {gui,screen}
+
+alt + Return
+	kitty
