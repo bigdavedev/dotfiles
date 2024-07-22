@@ -21,6 +21,7 @@
     ~/.config/git: config/git/
 #    ~/.config/gtk-2.0/gtkrc: config/gtk-2.0/gtkrc
 #    ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
+    ~/.config/kitty: config/kitty
 #    ~/.config/mutt: config/mutt
     ~/.config/nano: config/nano
     ~/.config/pacman: config/pacman
